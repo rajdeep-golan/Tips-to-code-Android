@@ -1,0 +1,21 @@
+//We can only put String , int , float , Double , SetString in SharedPrefs , but using Gson , we can store customised objects
+public void storeData(){
+            SharedPreferences sharedPref = getSharedPreferences("Shared Pref",this.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            Gson gson = new Gson();
+            //Here user is an ArrayList<User> ,where User is a customised class
+            String buyerList = gson.toJson(user); 
+            editor.putString("userList", buyerList);
+            editor.commit();
+    }
+public void loadData(){
+        SharedPreferences sP=getSharedPreferences("Shared Pref",this.MODE_PRIVATE);
+        Gson gson=new Gson();
+        String buyerList = sP.getString("userList",null);
+        //import Type as a java.lang.reflect
+        Type type = new TypeToken<ArrayList<Users>>() {}.getType();
+        customer = gson.fromJson(buyerList,type);
+        //Now this customer contains the list of all the users(of the user ArrayList , i.e. we access the user ArrayList
+        if(customer==null)
+           customer=new ArrayList<>();
+    }
