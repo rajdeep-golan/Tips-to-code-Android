@@ -1,0 +1,15 @@
+Suppose for a phone number , we need only particular length
+Put the following line in your XML of EDIT Text
+
+android:maxLength="10"
+
+So that it looks like
+
+ <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"  <!-- OR "number" -->
+                android:maxLength="10"
+                android:textSize="17sp"
+                tools:ignore="TextFields" />
