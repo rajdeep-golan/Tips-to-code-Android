@@ -1,0 +1,23 @@
+public boolean isValidPhone(CharSequence phone) {
+  if (TextUtils.isEmpty(phone)) {
+      return false;
+    }
+    else {
+       //We use Pattern package
+       
+       // FOR EMAIL : return android.util.Patterns.EMAIL_ADDRESS.matcher(email_input).matches();
+      return android.util.Patterns.PHONE.matcher(phone).matches();  //returns true or false
+      }
+}
+
+
+//Use it as 
+
+if(isValidPhone(ed_phone.getText().toString())){
+ 
+    Toast.makeText(getApplicationContext(),"Phone number is valid",Toast.LENGTH_SHORT).show();
+}else {
+ 
+T   oast.makeText(getApplicationContext(),"Phone number is not valid",Toast.LENGTH_SHORT).show();
+ 
+}
